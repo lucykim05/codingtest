@@ -1,0 +1,1 @@
+const solution = x=>(Math.floor(x/2))*(Math.floor(x/2)+1)
