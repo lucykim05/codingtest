@@ -1,0 +1,1 @@
+const solution = (a,b)=>Math.floor(1000*(a/b))
