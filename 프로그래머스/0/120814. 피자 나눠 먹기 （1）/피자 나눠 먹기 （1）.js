@@ -1,0 +1,1 @@
+const solution = x=>Math.ceil(x/7)
