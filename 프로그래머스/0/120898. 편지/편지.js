@@ -1,0 +1,1 @@
+const solution = x=>x.split('').length*2
