@@ -1,0 +1,1 @@
+const solution = (a,b)=> Math.ceil(b/a)
