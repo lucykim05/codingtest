@@ -1,0 +1,1 @@
+const solution = (a,b)=>a.split('').filter(x=>x!==b).join('')
