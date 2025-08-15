@@ -1,0 +1,1 @@
+const solution = (a,b)=> a.includes(b) ? 1:2
