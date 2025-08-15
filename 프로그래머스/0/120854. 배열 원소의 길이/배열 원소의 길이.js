@@ -1,0 +1,1 @@
+const solution = x=> x.map(a=>a.length)
