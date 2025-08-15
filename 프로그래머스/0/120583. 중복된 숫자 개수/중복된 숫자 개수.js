@@ -1,0 +1,1 @@
+const solution = (a,b)=>a.filter(x=>x===b).length
