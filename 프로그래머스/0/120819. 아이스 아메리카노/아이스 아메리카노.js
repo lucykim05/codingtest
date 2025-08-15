@@ -1,0 +1,1 @@
+const solution = x=> [Math.floor(x/5500), x%5500]
