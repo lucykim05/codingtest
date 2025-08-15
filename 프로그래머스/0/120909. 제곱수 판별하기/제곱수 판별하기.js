@@ -1,0 +1,1 @@
+const solution = x=>Math.floor(Math.sqrt(x))===Math.sqrt(x) ? 1 : 2
