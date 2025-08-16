@@ -1,0 +1,1 @@
+const solution = x=>Math.floor(x/5)+Math.floor((x%5)/3)+ (x%5)%3
