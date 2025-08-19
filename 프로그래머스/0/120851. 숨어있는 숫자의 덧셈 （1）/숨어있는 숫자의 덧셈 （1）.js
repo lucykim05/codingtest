@@ -1,0 +1,1 @@
+const solution = x=>x.split('').filter(a=>!isNaN(Number(a))).map(Number).reduce((b,c)=>b+c)
