@@ -1,0 +1,1 @@
+const solution = x=>x.split('').map(a=>a===a.toUpperCase()?a.toLowerCase():a.toUpperCase()).join('')
