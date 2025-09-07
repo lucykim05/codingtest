@@ -1,13 +1,16 @@
 function solution(balls, share) {
-  if (share > balls) return 0;
+    function fact(n) {
+        let ans = 1n; // BigInt 사용
+        for (let i = 1n; i <= n; i++) {
+            ans *= i;
+        }
+        return ans;
+    }
 
-  let n = balls;
-  let r = Math.min(share, n - share); // 대칭성 이용
-  let res = 1;
+    balls = BigInt(balls);
+    share = BigInt(share);
 
-  for (let i = 1; i <= r; i++) {
-    res = (res * (n - r + i)) / i; // (nCr) = (nC(i-1)) * (n - i + 1) / i
-  }
+    if (balls === share) return 1;
 
-  return Math.round(res); // 이 문제 범위에선 정수로 정확히 떨어짐
+    return fact(balls) / (fact(share) * fact(balls - share));
 }
