@@ -1,11 +1,15 @@
 function solution(array) {
-    const arr = [...new Set(array)]
-    let answer = Array(arr.length).fill(0)
-    for(let i=0;i<arr.length;i++) {
-        answer[i]=array.filter(x=>x===arr[i]).length
-    }
-    
-    const max = Math.max(...answer)
-    const a = answer.filter(x=>x===max).length
-    return a === 1 ? arr[answer.indexOf(max)] : -1
+    const freq = {};
+
+    array.forEach((num) => {
+        freq[num] = (freq[num] || 0) + 1;
+    });
+
+    const maxCount = Math.max(...Object.values(freq));
+
+    const modes = Object.keys(freq).filter((key) => freq[key] === maxCount);
+
+    if (modes.length > 1) return -1;
+
+    return Number(modes[0]);
 }
