@@ -1,13 +1,11 @@
-function solution(numer1, denom1, numer2, denom2) {
-  const num = numer1 * denom2 + numer2 * denom1;
-  const den = denom1 * denom2;                 
+function solution(a, b, c, d) {
+  const numerator = a * d + c * b;
+  const denominator = b * d;  
+  function gcd(x, y) {
+    return y === 0 ? x : gcd(y, x % y);
+  }
 
-  const gcd = (a, b) => {
-    a = Math.abs(a); b = Math.abs(b);
-    while (b !== 0) [a, b] = [b, a % b];
-    return a;
-  };
+  const g = gcd(numerator, denominator);
 
-  const g = gcd(num, den);
-  return [num / g, den / g];
+  return [numerator / g, denominator / g];
 }
