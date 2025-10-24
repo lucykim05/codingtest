@@ -1,18 +1,19 @@
 function solution(keyinput, board) {
-    let answer = [0, 0];
-    const xLimit = Math.floor(board[0] / 2);
-    const yLimit = Math.floor(board[1] / 2);
-
-    for (let i = 0; i < keyinput.length; i++) {
-        if (keyinput[i] === 'left') {
-            answer[0] = Math.max(-xLimit, answer[0] - 1);
-        } else if (keyinput[i] === 'right') {
-            answer[0] = Math.min(xLimit, answer[0] + 1);
-        } else if (keyinput[i] === 'up') {
-            answer[1] = Math.min(yLimit, answer[1] + 1);
-        } else if (keyinput[i] === 'down') {
-            answer[1] = Math.max(-yLimit, answer[1] - 1);
-        }
+    let [x, y] = [0, 0];
+    const [maxX, maxY] = [Math.floor(board[0] / 2), Math.floor(board[1] / 2)];
+    
+    const moves = {
+        'up': [0, 1],
+        'down': [0, -1],
+        'left': [-1, 0],
+        'right': [1, 0]
+    };
+    
+    for (const key of keyinput) {
+        const [dx, dy] = moves[key];
+        x = Math.max(-maxX, Math.min(maxX, x + dx));
+        y = Math.max(-maxY, Math.min(maxY, y + dy));
     }
-    return answer;
+    
+    return [x, y];
 }
