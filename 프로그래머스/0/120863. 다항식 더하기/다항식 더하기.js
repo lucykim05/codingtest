@@ -1,22 +1,25 @@
 function solution(polynomial) {
-    const arr = polynomial.split(' + ');
-
-    let answer = [0, 0];
-
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i].includes('x')) {
-            const coef = arr[i].replace('x', '');
-            answer[0] += coef === '' ? 1 : Number(coef);
+    const arr = polynomial.split(' + ')
+    let a = 0;
+    let b = 0;
+    for(let letter of arr) {
+        if(letter.includes('x')) {
+            const re = letter.replace('x', '')
+            a += re === ''? 1 : Number(re)
         } else {
-            answer[1] += Number(arr[i]);
+            b += Number(letter)
         }
     }
-
-    if (answer[0] !== 0 && answer[1] !== 0) {
-        return `${answer[0] === 1 ? '' : answer[0]}x + ${answer[1]}`;
-    } else if (answer[0] !== 0) {
-        return `${answer[0] === 1 ? '' : answer[0]}x`;
-    } else {
-        return `${answer[1]}`;
+    
+    const result = [];
+    
+    if (a !== 0) {
+        result.push(a === 1 ? 'x' : `${a}x`);
     }
+    
+    if (b !== 0) {
+        result.push(b);
+    }
+    
+    return result.join(' + ');
 }
