@@ -3,7 +3,7 @@ function solution(n) {
     let first = 0
     let next = 1;
     for(let i=2;i<=n;i++) {
-        number = (first+next) % 1234567
+        number = (first+next) % 1234567 // 모듈러 연산
         first = next
         next = number
     }
