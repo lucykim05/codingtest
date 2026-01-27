@@ -1,11 +1,10 @@
 function solution(s){
-    const stack = [];
+    let count = 0;
     
-    for(const a of s.split('')) {
-        if(a==='(') stack.push(a)
-        if(a===')' && stack.length === 0) return false
-        if(a===')') stack.pop()
+    for(const a of s) {
+        if(a==='(') count ++
+        if(a!=='(') count --;
+        if(count<0) return false //시작이 ')'
     }
-    
-    return stack.length === 0
+    return count === 0
 }
